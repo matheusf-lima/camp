@@ -1,7 +1,11 @@
 let players = JSON.parse(localStorage.getItem('players')) || {
-  Ana: 0,
-  Bruno: 0,
-  Carlos: 0
+  Matheus: 0,
+  Pedro: 0,
+  Ronaldo: 0,
+  David: 0,
+  Giulia: 0,
+  Lara: 0,
+  Vitoria: 0
 };
 
 let playersData = JSON.parse(localStorage.getItem('playersData')) || {};
