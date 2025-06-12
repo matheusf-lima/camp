@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+h1#title {
+  font-family: 'Bungee', sans-serif;
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fffced;
+  letter-spacing: 1.5px;
+}
+
+h1#title .deluxe {
+  background: linear-gradient(90deg, #8e2de2, #4a00e0, #00c9ff, #ff2fd0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  padding: 0 8px;
+  text-shadow:
+    0 0 2px rgba(255, 255, 255, 0.15),
+    0 0 4px rgba(255, 47, 208, 0.1),
+    0 0 6px rgba(0, 201, 255, 0.08);
+  animation: subtleGlow 3s ease-in-out infinite;
+}
+
+@keyframes subtleGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 2px rgba(255, 255, 255, 0.15),
+      0 0 4px rgba(255, 47, 208, 0.1),
+      0 0 6px rgba(0, 201, 255, 0.08);
+  }
+  50% {
+    text-shadow:
+      0 0 3px rgba(255, 255, 255, 0.2),
+      0 0 6px rgba(255, 47, 208, 0.12),
+      0 0 8px rgba(0, 201, 255, 0.1);
+  }
+}
+#scoreTable {
+  background: rgba(0, 122, 204, 0.15); /* Azul suave translúcido */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Suporte para Safari */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  padding: 25px 30px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+#updateForm {
+  background: rgba(255, 255, 255, 0.06); /* fundo suave */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background: rgb(2, 2, 14);
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 30px;
+}
+
+h1, h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 12px 24px;
+  background-color: #000;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: #E82C2C;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab:hover {
+  background-color: #faf7ea;
+  color: #000;
+}
+
+.tab.active {
+  background-color: #0074E8;
+  color: #fff;
+  box-shadow: 0 4px 12px #0074E8aa;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.content > div {
+  background-color: #000;
+  padding: 25px 30px;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+  display: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Tabela estilizada com bordas e cantos arredondados */
+table {
+  width: 100%;
+  border-collapse: separate; /* importante para cantos arredondados nas células */
+  border-spacing: 0;
+  border: 2px solid #F6D429; /* borda amarela grossa ao redor da tabela */
+  border-radius: 15px; /* cantos arredondados da tabela */
+  font-size: 0.9rem;
+  background-color: #111; /* fundo um pouco mais escuro */
+  box-shadow: 0 0 15px #F6D429aa; /* leve brilho amarelo */
+}
+
+thead tr {
+  background-color: #0074E8;
+  color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+thead th {
+  padding: 12px;
+  border-bottom: 2px solid #F6D429;
+}
+
+tbody tr {
+  border-bottom: 1px solid #444;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+tbody tr:last-child {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: #F6D429cc;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.player-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.player-image-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #F6D429;
+  box-shadow: 0 0 8px #F6D429aa;
+}
+
+#playersInputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.player-card {
+  background: #222;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #0074E880;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #E82C2C;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.card-remove-btn:hover {
+  color: #F6D429;
+}
+
+#playersInputs label {
+  color: #F6D429;
+  font-weight: bold;
+}
+
+#playersInputs input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #E82C2C;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 0 6px #E82C2Caa;
+}
+
+#playersInputs input[type="number"]:focus {
+  background-color: #F6D429;
+  color: #000;
+  outline: none;
+  box-shadow: 0 0 10px #F6D429cc;
+}
+
+#playersInputs input[type="file"] {
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+button {
+  background-color: #E82C2C;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 0 8px #E82C2Cbb;
+}
+
+button:hover {
+  background-color: #F6D429;
+  color: #000;
+  box-shadow: 0 0 12px #F6D429dd;
+}
+
+#alert {
+  text-align: center;
+  padding: 12px 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #F6D429;
+  height: 28px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  user-select: none;
+  margin-bottom: 15px;
+}
+
+#alert.show {
+  opacity: 1;
+}
+
+/* Animação destaque ao atualizar */
+.animated-cell.highlight {
+  animation: popChange 0.6s ease-in-out;
+}
+
+@keyframes popChange {
+  0% { background-color: #F6D429; transform: scale(1.1); color: #000; }
+  50% { background-color: #fffaaa; }
+  100% { background-color: transparent; transform: scale(1); color: inherit; }
+}
+/* Aba Histórico de Pontuação */
+
+#history {
+  background: rgba(246, 212, 41, 0.15); /* amarelo translúcido para destacar */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(246, 212, 41, 0.3); /* borda amarela leve */
+  box-shadow: 0 8px 20px rgba(246, 212, 41, 0.3);
+  padding: 25px 30px;
+  margin: 0 auto 30px;
+  max-width: 800px;
+  display: none; /* começa escondido, será mostrado pela aba */
+}
+
+/* Mesma estilização da tabela, porém com cabeçalho amarelo */
+
+#history table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #F6D429;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  background-color: #111;
+  box-shadow: 0 0 15px #F6D429aa;
+}
+
+#history thead tr {
+  background-color: #F6D429; /* cabeçalho amarelo */
+  color: #000;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+#history thead th {
+  padding: 12px;
+  border-bottom: 2px solid #0074E8; /* contraste azul */
+}
+
+#history tbody tr {
+  border-bottom: 1px solid #444;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#history tbody tr:last-child {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom: none;
+}
+
+#history tbody tr:hover {
+  background-color: #F6D429cc;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#history th, #history td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+/* Scroll para histórico se crescer muito */
+
+#history table {
+  display: block;
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #F6D429 #222;
+}
+
+#history table::-webkit-scrollbar {
+  width: 8px;
+}
+
+#history table::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 10px;
+}
+
+#history table::-webkit-scrollbar-thumb {
+  background-color: #F6D429;
+  border-radius: 10px;
+  border: 2px solid #222;
+}

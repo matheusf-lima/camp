@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tabela de Pontuação</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 id="title">Super Álcool Kart 8 <span class="deluxe">Deluxe</span></h1>
+  <div id="alert"></div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('scoreTable', this)">Tabela de Pontuação</div>
+    <div class="tab" onclick="showTab('updateForm', this)">Atualizar Pontuação</div>
+    <div class="tab" onclick="showTab('historyTab', this)">Histórico</div> <!-- NOVA ABA -->
+  </div>
+
+  <div class="content">
+    <div id="scoreTable">
+      <h2>Tabela de Pontuação</h2>
+      <table>
+      <thead>
+        <tr>
+          <th style="border-top-left-radius: 15px;">Posição</th>
+          <th>Jogador</th>
+          <th>Pontos</th>
+          <th style="border-top-right-radius: 15px;">Variação</th>
+        </tr>
+      </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <div id="updateForm" style="display:none;">
+      <h2>Atualizar Pontuação</h2>
+      <form id="multiPointForm" onsubmit="addMultiplePoints(event)">
+        <div id="playersInputs"></div>
+        <div class="button-group">
+          <button type="submit">Adicionar Pontos</button>
+          <button type="button" onclick="addNewPlayer()">Adicionar Novo Jogador</button>
+          <button type="button" onclick="resetPoints()">Zerar Pontuações</button>
+        </div>
+      </form>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+      <button onclick="exportHistoryToCSV()">Exportar histórico (CSV)</button>
+      <button onclick="exportHistoryToJSON()">Exportar histórico (JSON)</button>
+    </div>
+
+    <div id="historyTab" style="display:none;">
+      <h2>Histórico de Atualizações</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Data e Hora</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody id="historyBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
